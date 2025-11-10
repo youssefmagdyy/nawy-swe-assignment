@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  // output = "../generated/prisma_client"
   binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
 
 }
@@ -15,6 +14,8 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+// Schema for the apartment model
 
 model Apartment {
   id          Int      @id @default(autoincrement())

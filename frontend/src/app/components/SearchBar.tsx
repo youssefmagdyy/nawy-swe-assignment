@@ -20,6 +20,7 @@ export default function SearchBar() {
 
 useEffect(() => {
   const paramsObj = Object.fromEntries(searchParams.entries());
+  // Set filters if there where filters in the url seaarch params on mount
   setFilters({
     ...filters,
     ...paramsObj,
@@ -39,13 +40,15 @@ useEffect(() => {
     }
   };
 
+  // Updates the URL search parameters based on selected filters,
+  // causing Next.js to re-render and fetch new apartments
   const handleSearch = () => {
     const params : Record<string, string> = {};
     Object.entries(filters).forEach(([key, value]) => {
       if (value !== "") params[key] = value;
     });
     const queryString = new URLSearchParams(params).toString();
-    router.push(`/?${queryString}`); // Triggers the searching
+    router.push(`/?${queryString}`); // Triggers the fetching
   };
 
   const handleClear = () => {

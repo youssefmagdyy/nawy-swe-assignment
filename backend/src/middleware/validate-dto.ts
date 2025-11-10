@@ -4,6 +4,9 @@ import type { Request, Response, NextFunction } from "express";
 
 type RequestPart = "body" | "query";
 
+// Middleware that validates incoming request data
+// using a provided DTO class. Used for both creating apartments
+// and validating filter parameters for apartment searches.
 export const validateDto = (dtoClass: any, requestPart: RequestPart) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     const data = req[requestPart];

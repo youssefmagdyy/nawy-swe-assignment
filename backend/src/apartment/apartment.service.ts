@@ -15,12 +15,15 @@ interface ApartmentFilters {
   maxArea?: number;
 }
 
+// Builds a Prisma query using provided filters and returns matching apartments.
 export const getAll = (filters: ApartmentFilters) => {
   const where: any = {};
 
+  // Text-based filters (case-insensitive)
   if (filters.unitName) where.unitName = { contains: filters.unitName, mode: "insensitive" };
   if (filters.unitNumber) where.unitNumber = { contains: filters.unitNumber, mode: "insensitive" };
   if (filters.project) where.project = { contains: filters.project, mode: "insensitive" };
+  
   if (filters.bedrooms) where.bedrooms = filters.bedrooms;
   if (filters.bathrooms) where.bathrooms = filters.bathrooms;
 
@@ -35,7 +38,8 @@ export const getAll = (filters: ApartmentFilters) => {
     if (filters.minArea) where.area.gte = filters.minArea;
     if (filters.maxArea) where.area.lte = filters.maxArea;
   }
-
+  
+  // Query apartments with the constructed filter object
   return prisma.apartment.findMany({ where });
 };
 

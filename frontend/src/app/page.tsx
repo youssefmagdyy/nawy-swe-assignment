@@ -7,7 +7,7 @@ export default async function HomePage({
 }: {
   searchParams: Promise<{ [key: string]: string}>
 }) {
-  const filters = (await searchParams)
+  const filters = (await searchParams) // Extract filter values from the URL search parameters
   const queryString = new URLSearchParams(filters as Record<string, string>).toString();
   const res = await api.get(`/apartments${queryString ? `?${queryString}` : ""}`)
   const apartments =  res.data;

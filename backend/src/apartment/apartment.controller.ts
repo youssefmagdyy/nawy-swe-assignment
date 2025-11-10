@@ -2,6 +2,8 @@ import type { Request, Response } from "express";
 import * as service from "./apartment.service";
 
 export const getAllApartments = async (req: Request, res: Response) => {
+  // Middleware attaches a `validatedQuery` object
+  // containing validated and transformed filter parameters.
   const filters = (req as any).validatedQuery
   const apartments = await service.getAll(filters);
   res.json(apartments);
