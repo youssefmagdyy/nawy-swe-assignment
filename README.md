@@ -23,7 +23,7 @@
   "description": "Spacious modern apartment with balcony and garden view.",
   "images": [
     "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
-    "https://images.unsplash.com/photo-1600607686669-1f7a1c7dcd00"
+    "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2"
   ]
 }
 ```
@@ -34,7 +34,7 @@
 
 **Search & Filter Apartments** 
 
-`GET http://localhost:3000/?unitName=sky&unitNumber=1`
+`GET http://localhost:3000/?unitName=palm&unitNumber=2`
 
 **Get One Apartment** 
 
