@@ -6,6 +6,16 @@
 - **Backend:** Node.js + Express + TypeScript + Prisma ORM + class-validator  
 - **Database:** PostgreSQL  
 
+## Pages
+
+**Apartment Lisitng page** 
+
+`http://localhost:3000/`
+
+**Apartment Details page** 
+
+`http://localhost:3000/apartments/{apartment_id}`
+
 ## API Examples
 
 ### Create Apartment  
@@ -38,7 +48,7 @@
 
 **Get One Apartment** 
 
-`GET http://localhost:5000/api/apartments/apartment_id`
+`GET http://localhost:5000/api/apartments/{apartment_id}`
 
 
 ## Services (Ports)
