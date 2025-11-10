@@ -6,6 +6,9 @@
 
 generator client {
   provider = "prisma-client-js"
+  // output = "../generated/prisma_client"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+
 }
 
 datasource db {
@@ -23,6 +26,6 @@ model Apartment {
   bathrooms   Int
   area        Float
   description String
-  imageUrl    String
+  images      String[]
   createdAt   DateTime @default(now())
 }

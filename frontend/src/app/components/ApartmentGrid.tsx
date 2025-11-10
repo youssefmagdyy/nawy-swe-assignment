@@ -8,7 +8,7 @@ interface Apartment {
   price: number
   bedrooms: number
   bathrooms: number
-  imageUrl: string
+  images: string[]
 }
 
 export default function ApartmentGrid({ apartments }: { apartments: Apartment[] }) {

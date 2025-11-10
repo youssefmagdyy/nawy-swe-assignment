@@ -9,14 +9,14 @@ interface ApartmentCardProps {
   price: number;
   bedrooms: number;
   bathrooms: number;
-  imageUrl: string;
+  images: string[];
 }
 
-export default function ApartmentCard({ id, unitName, project, price, bedrooms, bathrooms, imageUrl, unitNumber }: ApartmentCardProps) {
+export default function ApartmentCard({ id, unitName, project, price, bedrooms, bathrooms, images, unitNumber }: ApartmentCardProps) {
   return (
     <Link href={`/apartments/${id}`}>
       <div className="bg-white shadow-sm rounded-lg overflow-hidden hover:shadow-md transition">
-        <Image src={imageUrl} alt={unitName} className="w-full h-48 object-cover" width={1200} height={400}/>
+        <Image src={images[0]} alt={unitName} className="w-full h-48 object-cover" width={1200} height={400}/>
         <div className="p-4">
           <h2 className="text-md font-semibold">{unitNumber}</h2>
           <h2 className="text-lg font-semibold">{unitName}</h2>

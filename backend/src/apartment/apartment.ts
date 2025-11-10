@@ -7,5 +7,5 @@ export interface Apartment {
   bathrooms: number;
   area: number;
   description: string;
-  imageUrl: string;
+  images: string[];
 }

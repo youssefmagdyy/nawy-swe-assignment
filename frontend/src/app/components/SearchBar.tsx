@@ -67,6 +67,7 @@ useEffect(() => {
 
   return (
     <div className="bg-white shadow-sm rounded-lg p-4 mb-6 flex flex-wrap gap-3 items-end">
+      <div className="flex flex-wrap gap-3 items-end">
       <input
         type="text"
         name="unitName"
@@ -127,7 +128,7 @@ useEffect(() => {
         onChange={handleChangeNumbers}
         className="border rounded-md p-2 w-[120px]"
       />
-
+      </div>
       <div className="flex gap-2">
         <button
           onClick={handleSearch}
@@ -148,6 +149,6 @@ useEffect(() => {
           Reset Filters
         </button>
       </div>
-    </div>
+      </div>
   );
 }

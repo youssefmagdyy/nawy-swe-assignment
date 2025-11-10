@@ -1,4 +1,4 @@
-import { IsString, IsNumber, IsOptional, IsUrl, Min, IsInt, IsPositive } from "class-validator";
+import { IsString, IsNumber, IsOptional, IsUrl, Min, IsInt, IsPositive, IsArray } from "class-validator";
 import { Type } from "class-transformer";
 
 export class CreateApartmentDto {
@@ -27,13 +27,11 @@ export class CreateApartmentDto {
   @Min(1)
   area!: number;
 
-  @IsOptional()
   @IsString()
   description!: string;
 
-  @IsOptional()
-  @IsUrl()
-  imageUrl!: string;
+  @IsArray()
+  images!: string[];
 }
 
 export class ApartmentFilterDto {
