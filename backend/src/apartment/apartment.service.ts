@@ -45,4 +45,16 @@ export const getAll = (filters: ApartmentFilters) => {
 
 export const getById = (id: number) => prisma.apartment.findUnique({ where: { id } });
 
-export const create = (data: any) => prisma.apartment.create({ data });
+export const create = async (data: any) => {
+  const existing = await prisma.apartment.findFirst({
+    where: {
+      unitName: data.unitName,
+      unitNumber: data.unitNumber,
+    },
+  });
+
+  if (existing) {
+    throw new Error(`Apartment with the same unit name and number already exists`);
+  }
+  return prisma.apartment.create({ data });
+};

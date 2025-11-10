@@ -18,6 +18,10 @@ export const getApartmentById = async (req: Request, res: Response) => {
 
 export const addApartment = async (req: Request, res: Response) => {
   const data = req.body;
-  const newApartment = await service.create(data);
-  res.status(201).json(newApartment);
+  try {
+      const newApartment = await service.create(data);
+      res.status(201).json(newApartment);
+  } catch (error) {
+      return res.status(400).json({ message: "Apartment with the same unit name and number already exists" });
+  }
 };
